@@ -14,25 +14,42 @@
         }
         
         :root {
-            --primary-purple: #6B46C1;
-            --primary-orange: #F59E0B;
-            --light-purple: #EDE9FE;
-            --light-orange: #FEF3C7;
-            --dark-purple: #4C1D95;
-            --dark-orange: #D97706;
+            --primary-dark: #0f0f0f;
+            --secondary-dark: #1a1a1a;
+            --accent-cyan: #00ffff;
+            --accent-coral: #ff4444;
+            --accent-teal: #40e0d0;
+            --accent-red: #ff6b6b;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+        }
+        
+        body {
+            background: var(--primary-dark);
+            color: white;
         }
         
         .hero-gradient {
-            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple), #1E3A8A);
+            background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark), #1e3a8a);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
         }
         
         .card-hover {
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 25px -5px rgba(0, 255, 255, 0.3), 0 10px 10px -5px rgba(255, 68, 68, 0.2);
+            border-color: var(--accent-cyan);
         }
         
         .tab-content {
@@ -45,14 +62,17 @@
         
         .tab-button {
             transition: all 0.3s ease;
-            color: #6B7280;
+            color: #9ca3af;
+            background: var(--secondary-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .tab-button.active {
-            background: white;
-            color: var(--primary-purple);
-            border-bottom: 3px solid var(--primary-orange);
-            font-weight: 600;
+            background: var(--accent-cyan);
+            color: var(--primary-dark);
+            border-color: var(--accent-cyan);
+            font-weight: 700;
+            box-shadow: 0 0 20px var(--accent-cyan);
         }
         
         .dropdown-content {
@@ -74,6 +94,7 @@
         
         .interactive-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 20px currentColor;
         }
         
         .interactive-button:active {
@@ -91,8 +112,9 @@
             left: 2.5rem;
             width: 1rem;
             height: 1rem;
-            background: var(--primary-orange);
+            background: var(--accent-cyan);
             animation: bounce 2s infinite;
+            box-shadow: 0 0 20px var(--accent-cyan);
         }
         
         .floating-2 {
@@ -100,8 +122,9 @@
             right: 5rem;
             width: 1.5rem;
             height: 1.5rem;
-            background: #FB923C;
+            background: var(--accent-coral);
             animation: pulse 3s infinite;
+            box-shadow: 0 0 20px var(--accent-coral);
         }
         
         .floating-3 {
@@ -109,8 +132,9 @@
             left: 25%;
             width: 0.75rem;
             height: 0.75rem;
-            background: var(--primary-purple);
+            background: var(--neon-green);
             animation: bounce 2s infinite 1s;
+            box-shadow: 0 0 20px var(--neon-green);
         }
         
         @keyframes fadeInUp {
@@ -131,11 +155,14 @@
         .skill-card {
             transition: all 0.3s ease;
             cursor: pointer;
+            background: var(--secondary-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .skill-card:hover {
             transform: scale(1.02);
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
         }
         
         .popup-overlay {
@@ -145,7 +172,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 1000;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -159,7 +186,8 @@
         }
         
         .popup-content {
-            background: white;
+            background: var(--secondary-dark);
+            border: 1px solid var(--accent-cyan);
             border-radius: 1rem;
             padding: 2rem;
             max-width: 90%;
@@ -167,6 +195,7 @@
             overflow-y: auto;
             transform: scale(0.9);
             transition: transform 0.3s ease;
+            box-shadow: 0 0 50px var(--accent-cyan);
         }
         
         .popup-overlay.active .popup-content {
@@ -174,88 +203,169 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-orange), var(--dark-orange));
-            color: white;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+            color: var(--primary-dark);
             border: none;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .btn-primary:hover {
-            background: linear-gradient(135deg, var(--dark-orange), #B45309);
+            background: linear-gradient(135deg, var(--accent-teal), var(--neon-green));
             transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--accent-cyan);
         }
         
         .btn-secondary {
             background: transparent;
-            color: var(--primary-purple);
-            border: 2px solid var(--primary-purple);
+            color: var(--accent-coral);
+            border: 2px solid var(--accent-coral);
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .btn-secondary:hover {
-            background: var(--primary-purple);
-            color: white;
+            background: var(--accent-coral);
+            color: var(--primary-dark);
+            box-shadow: 0 0 30px var(--accent-coral);
         }
         
-        .text-primary {
-            color: var(--primary-purple);
+        .text-cyan {
+            color: var(--accent-cyan);
         }
         
-        .text-secondary {
-            color: var(--primary-orange);
+        .text-coral {
+            color: var(--accent-coral);
         }
         
-        .bg-primary {
-            background-color: var(--primary-purple);
+        .text-neon-green {
+            color: var(--neon-green);
         }
         
-        .bg-secondary {
-            background-color: var(--primary-orange);
+        .bg-dark {
+            background-color: var(--secondary-dark);
         }
         
-        .bg-light-primary {
-            background-color: var(--light-purple);
+        .bg-darker {
+            background-color: var(--primary-dark);
         }
         
-        .bg-light-secondary {
-            background-color: var(--light-orange);
+        .border-neon {
+            border-color: var(--accent-cyan);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .partnership-badge {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-coral));
+            color: var(--primary-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stats-card {
+            background: var(--secondary-dark);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 20px var(--accent-cyan);
+        }
+        
+        .course-card {
+            background: var(--secondary-dark);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+            transform: translateY(-10px);
+        }
+        
+        .course-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+            color: var(--primary-dark);
+        }
+        
+        .course-header.coral {
+            background: linear-gradient(135deg, var(--accent-coral), var(--accent-red));
+        }
+        
+        .course-header.purple {
+            background: linear-gradient(135deg, var(--neon-purple), #8b5cf6);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-purple-50 via-white to-orange-50">
+<body class="bg-darker text-white">
     <!-- Hero Section -->
-    <section class="relative overflow-hidden hero-gradient text-white">
-        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+    <section class="relative overflow-hidden hero-gradient">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         <div class="floating-element floating-1"></div>
         <div class="floating-element floating-2"></div>
         <div class="floating-element floating-3"></div>
         
         <div class="relative container mx-auto px-6 py-20">
-            <div class="text-center max-w-4xl mx-auto fade-in-up">
-                <div class="flex items-center justify-center mb-6">
-                    <i class="fas fa-sparkles text-yellow-400 text-5xl mr-4"></i>
-                    <h1 class="text-5xl md:text-7xl font-bold text-white">
-                        Women's Lens
-                    </h1>
+            <!-- Partnership Header -->
+            <div class="text-center mb-8">
+                <div class="partnership-badge inline-block mb-4">
+                    Partnership Program
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-6">
-                    AI Academy for East African Voices
-                </h2>
-                <p class="text-xl md:text-2xl mb-8 text-blue-100">
-                    Master AI fundamentals and build transferable skills that transform careers in journalism, politics, and education
+                <div class="logo-container justify-center mb-6">
+                    <img src="she-is-ai-logo.jpeg" alt="She Is AI" class="h-12 md:h-16">
+                    <span class="text-cyan text-2xl font-bold">×</span>
+                    <img src="WomenLensAfricaLogo.png" alt="Women's Lens Africa" class="h-12 md:h-16">
+                </div>
+            </div>
+            
+            <div class="text-center max-w-4xl mx-auto fade-in-up">
+                <h1 class="text-5xl md:text-7xl font-black mb-6">
+                    <span class="text-white">AI ACADEMY FOR</span><br>
+                    <span class="text-cyan neon-text">EAST AFRICAN</span><br>
+                    <span class="text-coral neon-text">VOICES</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300">
+                    Master AI fundamentals, responsible AI practices, and build transferable skills that transform careers in journalism, politics, and education
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <button onclick="showPopup('skills-popup')" class="interactive-button btn-primary text-lg">
-                        Explore AI Skills <i class="fas fa-arrow-right ml-2"></i>
+                        EXPLORE AI SKILLS <i class="fas fa-arrow-right ml-2"></i>
                     </button>
-                    <button onclick="showPopup('impact-popup')" class="interactive-button border-2 border-white text-white hover:bg-white hover:text-purple-900 px-8 py-4 text-lg rounded-lg font-semibold">
-                        See Real Impact <i class="fas fa-chart-line ml-2"></i>
+                    <button onclick="showPopup('impact-popup')" class="interactive-button btn-secondary text-lg">
+                        SEE REAL IMPACT <i class="fas fa-chart-line ml-2"></i>
                     </button>
                 </div>
             </div>
@@ -263,23 +373,23 @@
     </section>
 
     <!-- Navigation Tabs -->
-    <div class="sticky top-0 z-50 bg-white bg-opacity-95 backdrop-blur-sm border-b">
+    <div class="sticky top-0 z-50 bg-darker border-b border-gray-800">
         <div class="container mx-auto px-6">
             <div class="flex">
-                <button onclick="showTab('overview')" class="tab-button flex-1 py-4 text-center font-medium transition-all duration-300 active" id="tab-overview">
-                    Overview
+                <button onclick="showTab('overview')" class="tab-button flex-1 py-4 text-center font-bold transition-all duration-300 active" id="tab-overview">
+                    OVERVIEW
                 </button>
-                <button onclick="showTab('skills')" class="tab-button flex-1 py-4 text-center font-medium transition-all duration-300" id="tab-skills">
-                    AI Skills
+                <button onclick="showTab('skills')" class="tab-button flex-1 py-4 text-center font-bold transition-all duration-300" id="tab-skills">
+                    AI SKILLS
                 </button>
-                <button onclick="showTab('courses')" class="tab-button flex-1 py-4 text-center font-medium transition-all duration-300" id="tab-courses">
-                    Training Options
+                <button onclick="showTab('courses')" class="tab-button flex-1 py-4 text-center font-bold transition-all duration-300" id="tab-courses">
+                    TRAINING
                 </button>
-                <button onclick="showTab('impact')" class="tab-button flex-1 py-4 text-center font-medium transition-all duration-300" id="tab-impact">
-                    Real Impact
+                <button onclick="showTab('impact')" class="tab-button flex-1 py-4 text-center font-bold transition-all duration-300" id="tab-impact">
+                    IMPACT
                 </button>
-                <button onclick="showTab('contact')" class="tab-button flex-1 py-4 text-center font-medium transition-all duration-300" id="tab-contact">
-                    Get Started
+                <button onclick="showTab('contact')" class="tab-button flex-1 py-4 text-center font-bold transition-all duration-300" id="tab-contact">
+                    GET STARTED
                 </button>
             </div>
         </div>
@@ -292,32 +402,33 @@
         <div id="content-overview" class="tab-content active space-y-16">
             <!-- The AI Revolution -->
             <section class="text-center fade-in-up">
-                <h2 class="text-4xl font-bold mb-8 text-primary">
-                    The AI Skills Revolution
+                <h2 class="text-4xl md:text-6xl font-black mb-8">
+                    <span class="text-white">THE AI SKILLS</span><br>
+                    <span class="text-cyan neon-text">REVOLUTION</span>
                 </h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-rocket text-primary text-4xl mx-auto mb-4 block"></i>
-                        <div class="text-3xl font-bold text-gray-900 mb-2">60%+</div>
-                        <div class="text-sm text-gray-600">Time reduction across all tasks using AI tools</div>
+                    <div class="stats-card">
+                        <div class="stats-number">60%+</div>
+                        <div class="text-sm font-bold text-white mb-2">TIME REDUCTION</div>
+                        <div class="text-xs text-gray-400">Across all tasks using AI tools</div>
                         <div class="text-xs text-gray-500 mt-2">Stanford University & World Bank, 2024</div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-chart-line text-primary text-4xl mx-auto mb-4 block"></i>
-                        <div class="text-3xl font-bold text-gray-900 mb-2">56%</div>
-                        <div class="text-sm text-gray-600">Wage premium for AI-skilled workers</div>
+                    <div class="stats-card">
+                        <div class="stats-number">56%</div>
+                        <div class="text-sm font-bold text-white mb-2">WAGE PREMIUM</div>
+                        <div class="text-xs text-gray-400">For AI-skilled workers</div>
                         <div class="text-xs text-gray-500 mt-2">PwC Global AI Jobs Barometer, 2025</div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-globe text-primary text-4xl mx-auto mb-4 block"></i>
-                        <div class="text-3xl font-bold text-gray-900 mb-2">$4.4T</div>
-                        <div class="text-sm text-gray-600">Productivity growth potential from AI adoption</div>
+                    <div class="stats-card">
+                        <div class="stats-number">$4.4T</div>
+                        <div class="text-sm font-bold text-white mb-2">PRODUCTIVITY GROWTH</div>
+                        <div class="text-xs text-gray-400">Potential from AI adoption</div>
                         <div class="text-xs text-gray-500 mt-2">McKinsey Research, 2025</div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-users text-primary text-4xl mx-auto mb-4 block"></i>
-                        <div class="text-3xl font-bold text-gray-900 mb-2">40%</div>
-                        <div class="text-sm text-gray-600">Projected increase in AI specialist roles by 2027</div>
+                    <div class="stats-card">
+                        <div class="stats-number">40%</div>
+                        <div class="text-sm font-bold text-white mb-2">ROLE INCREASE</div>
+                        <div class="text-xs text-gray-400">AI specialist roles by 2027</div>
                         <div class="text-xs text-gray-500 mt-2">Multiple Industry Reports, 2024-2025</div>
                     </div>
                 </div>
@@ -325,93 +436,94 @@
 
             <!-- Why AI Skills Matter -->
             <section class="fade-in-up">
-                <h2 class="text-4xl font-bold text-center mb-12 text-secondary">
-                    Why AI Literacy is Essential for Modern Professionals
+                <h2 class="text-4xl md:text-6xl font-black text-center mb-12">
+                    <span class="text-white">WHY AI LITERACY IS</span><br>
+                    <span class="text-coral neon-text">ESSENTIAL</span>
                 </h2>
                 <div class="grid md:grid-cols-3 gap-12 items-start">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 text-gray-900">For Journalists</h3>
+                    <div class="bg-dark rounded-xl p-8 border border-gray-800 card-hover">
+                        <h3 class="text-2xl font-black mb-6 text-cyan neon-text">FOR JOURNALISTS</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Fact-checking acceleration:</strong> Verify information 5x faster while maintaining accuracy
+                                    <strong class="text-white">Fact-checking acceleration:</strong> <span class="text-gray-300">Verify information 5x faster while maintaining accuracy</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Content creation efficiency:</strong> Reduce writing time from 80 to 25 minutes average
+                                    <strong class="text-white">Content creation efficiency:</strong> <span class="text-gray-300">Reduce writing time from 80 to 25 minutes average</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Research enhancement:</strong> 70%+ time savings in investigative tasks
+                                    <strong class="text-white">Research enhancement:</strong> <span class="text-gray-300">70%+ time savings in investigative tasks</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Multimedia storytelling:</strong> Create compelling visuals, videos, and interactive content
+                                    <strong class="text-white">Multimedia storytelling:</strong> <span class="text-gray-300">Create compelling visuals, videos, and interactive content</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 text-gray-900">For Politicians</h3>
+                    <div class="bg-dark rounded-xl p-8 border border-gray-800 card-hover">
+                        <h3 class="text-2xl font-black mb-6 text-coral neon-text">FOR POLITICIANS</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Constituent analysis:</strong> Understand community needs through data-driven insights
+                                    <strong class="text-white">Constituent analysis:</strong> <span class="text-gray-300">Understand community needs through data-driven insights</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Policy evaluation:</strong> Compare and analyze policy options effectively
+                                    <strong class="text-white">Policy evaluation:</strong> <span class="text-gray-300">Compare and analyze policy options effectively</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Communication strategy:</strong> Craft clear, engaging messages for diverse audiences
+                                    <strong class="text-white">Communication strategy:</strong> <span class="text-gray-300">Craft clear, engaging messages for diverse audiences</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Information gathering:</strong> Efficiently collect and analyze constituent feedback
+                                    <strong class="text-white">Information gathering:</strong> <span class="text-gray-300">Efficiently collect and analyze constituent feedback</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-6 text-gray-900">For Educators</h3>
+                    <div class="bg-dark rounded-xl p-8 border border-gray-800 card-hover">
+                        <h3 class="text-2xl font-black mb-6 text-neon-green neon-text">FOR EDUCATORS</h3>
                         <div class="space-y-4">
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Training design:</strong> Create engaging, effective learning experiences
+                                    <strong class="text-white">Training design:</strong> <span class="text-gray-300">Create engaging, effective learning experiences</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Content development:</strong> Produce professional training materials quickly
+                                    <strong class="text-white">Content development:</strong> <span class="text-gray-300">Produce professional training materials quickly</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Assessment creation:</strong> Design effective evaluation and feedback systems
+                                    <strong class="text-white">Assessment creation:</strong> <span class="text-gray-300">Design effective evaluation and feedback systems</span>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                <i class="fas fa-check-circle text-neon-green mr-3 mt-1"></i>
                                 <div>
-                                    <strong>Community impact:</strong> Scale knowledge transfer and skill development
+                                    <strong class="text-white">Community impact:</strong> <span class="text-gray-300">Scale knowledge transfer and skill development</span>
                                 </div>
                             </div>
                         </div>
@@ -420,28 +532,28 @@
             </section>
 
             <!-- Real Testimonial -->
-            <section class="bg-light-primary rounded-2xl p-8 fade-in-up">
-                <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
-                    Voice of Transformation
+            <section class="bg-dark rounded-2xl p-8 border border-cyan fade-in-up">
+                <h2 class="text-4xl font-black text-center mb-12 text-white">
+                    <span class="text-cyan neon-text">VOICE OF</span> TRANSFORMATION
                 </h2>
                 <div class="max-w-4xl mx-auto">
-                    <div class="bg-white rounded-xl p-8 shadow-lg">
-                        <blockquote class="text-xl italic text-gray-700 mb-6 text-center">
+                    <div class="bg-darker rounded-xl p-8 border border-gray-800">
+                        <blockquote class="text-xl italic text-gray-300 mb-6 text-center">
                             "Now, as a multimedia journalist, I seamlessly transition my storytelling from radio to multiple platforms. With the help of tools like Canva, CapCut, and Infogram, I can now combine text, audio, images, and even video to create short, yet richer stories."
                         </blockquote>
                         <div class="flex items-center justify-center">
-                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-coral-500 rounded-full flex items-center justify-center text-black font-black text-xl mr-6 neon-glow">
                                 OY
                             </div>
                             <div class="text-center">
-                                <div class="font-bold text-gray-900 text-lg">Olubunmi Yekini</div>
-                                <div class="text-gray-600">Multimedia Journalist, Nigeria</div>
-                                <div class="text-sm text-gray-500 mt-1">Radio to multimedia transformation using AI tools</div>
+                                <div class="font-black text-white text-lg">Olubunmi Yekini</div>
+                                <div class="text-cyan">Multimedia Journalist, Nigeria</div>
+                                <div class="text-sm text-gray-400 mt-1">Radio to multimedia transformation using AI tools</div>
                             </div>
                         </div>
-                        <div class="mt-6 p-4 bg-light-secondary rounded-lg">
-                            <h5 class="font-semibold text-gray-900 mb-2 text-center">Transformation Achieved:</h5>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                        <div class="mt-6 p-4 bg-gray-900 rounded-lg border border-gray-800">
+                            <h5 class="font-black text-white mb-2 text-center">TRANSFORMATION ACHIEVED:</h5>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-300">
                                 <div>• Evolved from radio-only to multimedia journalist</div>
                                 <div>• Mastered multiple AI-powered content platforms</div>
                                 <div>• Expanded reach across social media channels</div>
@@ -456,27 +568,29 @@
         <!-- Skills Tab -->
         <div id="content-skills" class="tab-content space-y-12">
             <div class="text-center mb-12 fade-in-up">
-                <h2 class="text-4xl font-bold mb-4 text-primary">
-                    Master AI Fundamentals & Build Transferable Skills
+                <h2 class="text-4xl md:text-6xl font-black mb-4">
+                    <span class="text-white">MASTER AI FUNDAMENTALS &</span><br>
+                    <span class="text-cyan neon-text">BUILD TRANSFERABLE SKILLS</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Learn what AI can create, how to leverage its power, and build skills that work across any platform or profession
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Learn what AI can create, how to leverage its power responsibly, and build skills that work across any platform or profession
                 </p>
             </div>
 
             <!-- Core LLM Skills -->
             <section class="fade-in-up">
-                <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">
-                    Large Language Model (LLM) Mastery - Foundation for All Programs
+                <h3 class="text-3xl font-black text-center mb-8">
+                    <span class="text-white">LARGE LANGUAGE MODEL (LLM) MASTERY</span><br>
+                    <span class="text-coral neon-text">FOUNDATION FOR ALL PROGRAMS</span>
                 </h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg border border-gray-100" onclick="toggleSkillDetails('llm-basics')">
-                        <i class="fas fa-brain text-primary text-5xl mb-4"></i>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">LLM Fundamentals</h4>
-                        <p class="text-gray-600 mb-4">Understand what LLMs are, how they work, and why they're revolutionary</p>
-                        <button class="text-primary font-semibold">Learn More <i class="fas fa-chevron-down ml-1"></i></button>
-                        <div id="llm-basics" class="dropdown-content mt-4 p-4 bg-light-primary rounded-lg">
-                            <ul class="space-y-2 text-sm text-gray-700">
+                    <div class="skill-card rounded-xl p-6" onclick="toggleSkillDetails('llm-basics')">
+                        <i class="fas fa-brain text-cyan text-5xl mb-4 neon-glow"></i>
+                        <h4 class="text-xl font-black mb-3 text-white">LLM FUNDAMENTALS</h4>
+                        <p class="text-gray-300 mb-4">Understand what LLMs are, how they work, and why they're revolutionary</p>
+                        <button class="text-cyan font-bold">LEARN MORE <i class="fas fa-chevron-down ml-1"></i></button>
+                        <div id="llm-basics" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-cyan">
+                            <ul class="space-y-2 text-sm text-gray-300">
                                 <li>• What are Large Language Models and how do they process information</li>
                                 <li>• Different types of LLMs and their specific strengths</li>
                                 <li>• Understanding tokens, context windows, and model capabilities</li>
@@ -486,13 +600,13 @@
                         </div>
                     </div>
 
-                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg border border-gray-100" onclick="toggleSkillDetails('prompt-engineering')">
-                        <i class="fas fa-magic text-secondary text-5xl mb-4"></i>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Prompt Engineering</h4>
-                        <p class="text-gray-600 mb-4">Master the art of communicating effectively with AI systems</p>
-                        <button class="text-secondary font-semibold">Learn More <i class="fas fa-chevron-down ml-1"></i></button>
-                        <div id="prompt-engineering" class="dropdown-content mt-4 p-4 bg-light-secondary rounded-lg">
-                            <ul class="space-y-2 text-sm text-gray-700">
+                    <div class="skill-card rounded-xl p-6" onclick="toggleSkillDetails('prompt-engineering')">
+                        <i class="fas fa-magic text-coral text-5xl mb-4 neon-glow"></i>
+                        <h4 class="text-xl font-black mb-3 text-white">PROMPT ENGINEERING</h4>
+                        <p class="text-gray-300 mb-4">Master the art of communicating effectively with AI systems</p>
+                        <button class="text-coral font-bold">LEARN MORE <i class="fas fa-chevron-down ml-1"></i></button>
+                        <div id="prompt-engineering" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-coral">
+                            <ul class="space-y-2 text-sm text-gray-300">
                                 <li>• Crafting clear, specific, and effective prompts</li>
                                 <li>• Using context and examples to guide AI responses</li>
                                 <li>• Chain-of-thought prompting for complex reasoning</li>
@@ -502,13 +616,30 @@
                         </div>
                     </div>
 
-                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg border border-gray-100" onclick="toggleSkillDetails('content-creation')">
-                        <i class="fas fa-palette text-green-600 text-5xl mb-4"></i>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">AI Content Creation</h4>
-                        <p class="text-gray-600 mb-4">Create diverse content types using AI capabilities</p>
-                        <button class="text-green-600 font-semibold">Learn More <i class="fas fa-chevron-down ml-1"></i></button>
-                        <div id="content-creation" class="dropdown-content mt-4 p-4 bg-green-50 rounded-lg">
-                            <ul class="space-y-2 text-sm text-gray-700">
+                    <div class="skill-card rounded-xl p-6" onclick="toggleSkillDetails('responsible-ai')">
+                        <i class="fas fa-shield-alt text-neon-green text-5xl mb-4 neon-glow"></i>
+                        <h4 class="text-xl font-black mb-3 text-white">RESPONSIBLE AI & ETHICS</h4>
+                        <p class="text-gray-300 mb-4">Learn ethical AI practices, bias awareness, and prevention strategies</p>
+                        <button class="text-neon-green font-bold">LEARN MORE <i class="fas fa-chevron-down ml-1"></i></button>
+                        <div id="responsible-ai" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-green-400">
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• Understanding AI bias and its impact on society</li>
+                                <li>• Identifying and mitigating bias in AI outputs</li>
+                                <li>• Ethical considerations in AI deployment</li>
+                                <li>• Responsible AI practices for journalism and politics</li>
+                                <li>• Building inclusive and fair AI systems</li>
+                                <li>• AI transparency and accountability</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-card rounded-xl p-6" onclick="toggleSkillDetails('content-creation')">
+                        <i class="fas fa-palette text-neon-purple text-5xl mb-4 neon-glow"></i>
+                        <h4 class="text-xl font-black mb-3 text-white">AI CONTENT CREATION</h4>
+                        <p class="text-gray-300 mb-4">Create diverse content types using AI capabilities</p>
+                        <button class="text-purple-400 font-bold">LEARN MORE <i class="fas fa-chevron-down ml-1"></i></button>
+                        <div id="content-creation" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-purple-400">
+                            <ul class="space-y-2 text-sm text-gray-300">
                                 <li>• Generate articles, reports, and professional documents</li>
                                 <li>• Create tables, charts, and data visualizations</li>
                                 <li>• Design presentations and slide decks</li>
@@ -518,13 +649,13 @@
                         </div>
                     </div>
 
-                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg border border-gray-100" onclick="toggleSkillDetails('digital-safety')">
-                        <i class="fas fa-shield-alt text-red-600 text-5xl mb-4"></i>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Digital Safety & Security</h4>
-                        <p class="text-gray-600 mb-4">Protect yourself and your data while using AI tools</p>
-                        <button class="text-red-600 font-semibold">Learn More <i class="fas fa-chevron-down ml-1"></i></button>
-                        <div id="digital-safety" class="dropdown-content mt-4 p-4 bg-red-50 rounded-lg">
-                            <ul class="space-y-2 text-sm text-gray-700">
+                    <div class="skill-card rounded-xl p-6" onclick="toggleSkillDetails('digital-safety')">
+                        <i class="fas fa-lock text-red-400 text-5xl mb-4 neon-glow"></i>
+                        <h4 class="text-xl font-black mb-3 text-white">DIGITAL SAFETY & SECURITY</h4>
+                        <p class="text-gray-300 mb-4">Protect yourself and your data while using AI tools</p>
+                        <button class="text-red-400 font-bold">LEARN MORE <i class="fas fa-chevron-down ml-1"></i></button>
+                        <div id="digital-safety" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-red-400">
+                            <ul class="space-y-2 text-sm text-gray-300">
                                 <li>• Password management and two-factor authentication</li>
                                 <li>• Protecting sensitive information when using AI</li>
                                 <li>• Recognizing and avoiding AI-generated misinformation</li>
@@ -534,13 +665,13 @@
                         </div>
                     </div>
 
-                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg border border-gray-100" onclick="toggleSkillDetails('custom-gpts')">
-                        <i class="fas fa-cogs text-blue-600 text-5xl mb-4"></i>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Custom AI Assistants</h4>
-                        <p class="text-gray-600 mb-4">Build and use specialized AI tools for your specific needs</p>
-                        <button class="text-blue-600 font-semibold">Learn More <i class="fas fa-chevron-down ml-1"></i></button>
-                        <div id="custom-gpts" class="dropdown-content mt-4 p-4 bg-blue-50 rounded-lg">
-                            <ul class="space-y-2 text-sm text-gray-700">
+                    <div class="skill-card rounded-xl p-6" onclick="toggleSkillDetails('custom-gpts')">
+                        <i class="fas fa-cogs text-blue-400 text-5xl mb-4 neon-glow"></i>
+                        <h4 class="text-xl font-black mb-3 text-white">CUSTOM AI ASSISTANTS</h4>
+                        <p class="text-gray-300 mb-4">Build and use specialized AI tools for your specific needs</p>
+                        <button class="text-blue-400 font-bold">LEARN MORE <i class="fas fa-chevron-down ml-1"></i></button>
+                        <div id="custom-gpts" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-blue-400">
+                            <ul class="space-y-2 text-sm text-gray-300">
                                 <li>• Understanding Custom GPTs and their benefits</li>
                                 <li>• Using pre-built assistants for journalism and politics</li>
                                 <li>• How custom assistants provide targeted, relevant responses</li>
@@ -549,45 +680,29 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div class="skill-card bg-white rounded-xl p-6 shadow-lg border border-gray-100" onclick="toggleSkillDetails('voice-tone')">
-                        <i class="fas fa-microphone text-purple-600 text-5xl mb-4"></i>
-                        <h4 class="text-xl font-bold mb-3 text-gray-900">Voice & Brand Training</h4>
-                        <p class="text-gray-600 mb-4">Teach AI your unique voice, tone, and mission</p>
-                        <button class="text-purple-600 font-semibold">Learn More <i class="fas fa-chevron-down ml-1"></i></button>
-                        <div id="voice-tone" class="dropdown-content mt-4 p-4 bg-purple-50 rounded-lg">
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li>• Defining your unique voice and communication style</li>
-                                <li>• Training AI to match your tone and personality</li>
-                                <li>• Incorporating your mission and values into AI outputs</li>
-                                <li>• Maintaining consistency across all content</li>
-                                <li>• Brand voice guidelines and style sheets</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </section>
 
             <!-- Professional Tools Mastery -->
             <section class="fade-in-up">
-                <h3 class="text-3xl font-bold text-center mb-8 text-gray-900">
-                    Professional Tool Mastery
+                <h3 class="text-3xl font-black text-center mb-8">
+                    <span class="text-white">PROFESSIONAL TOOL</span> <span class="text-cyan neon-text">MASTERY</span>
                 </h3>
-                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                <div class="bg-dark rounded-2xl p-8 border border-gray-800">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div>
-                            <h4 class="text-2xl font-bold mb-6 text-gray-900">Design & Presentation Tools</h4>
+                            <h4 class="text-2xl font-black mb-6 text-coral neon-text">DESIGN & PRESENTATION TOOLS</h4>
                             <div class="space-y-4">
-                                <div class="skill-card p-4 rounded-lg border border-gray-200" onclick="toggleSkillDetails('design-tools')">
+                                <div class="skill-card p-4 rounded-lg" onclick="toggleSkillDetails('design-tools')">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <h5 class="font-bold text-gray-900">Visual Content Creation</h5>
-                                            <p class="text-sm text-gray-600">Master professional design tools for all content types</p>
+                                            <h5 class="font-black text-white">VISUAL CONTENT CREATION</h5>
+                                            <p class="text-sm text-gray-300">Master professional design tools for all content types</p>
                                         </div>
-                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                        <i class="fas fa-chevron-down text-cyan"></i>
                                     </div>
-                                    <div id="design-tools" class="dropdown-content mt-4 p-4 bg-gray-50 rounded-lg">
-                                        <ul class="space-y-2 text-sm text-gray-700">
+                                    <div id="design-tools" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                                        <ul class="space-y-2 text-sm text-gray-300">
                                             <li>• Create professional images and graphics</li>
                                             <li>• Design presentations and slide decks</li>
                                             <li>• Build websites and landing pages</li>
@@ -600,18 +715,18 @@
                             </div>
                         </div>
                         <div>
-                            <h4 class="text-2xl font-bold mb-6 text-gray-900">Research & Analysis Tools</h4>
+                            <h4 class="text-2xl font-black mb-6 text-neon-green neon-text">RESEARCH & ANALYSIS TOOLS</h4>
                             <div class="space-y-4">
-                                <div class="skill-card p-4 rounded-lg border border-gray-200" onclick="toggleSkillDetails('research-tools')">
+                                <div class="skill-card p-4 rounded-lg" onclick="toggleSkillDetails('research-tools')">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <h5 class="font-bold text-gray-900">Information Gathering & Analysis</h5>
-                                            <p class="text-sm text-gray-600">Leverage free tools for comprehensive research</p>
+                                            <h5 class="font-black text-white">INFORMATION GATHERING & ANALYSIS</h5>
+                                            <p class="text-sm text-gray-300">Leverage free tools for comprehensive research</p>
                                         </div>
-                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                        <i class="fas fa-chevron-down text-cyan"></i>
                                     </div>
-                                    <div id="research-tools" class="dropdown-content mt-4 p-4 bg-gray-50 rounded-lg">
-                                        <ul class="space-y-2 text-sm text-gray-700">
+                                    <div id="research-tools" class="dropdown-content mt-4 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                                        <ul class="space-y-2 text-sm text-gray-300">
                                             <li>• Advanced search and information gathering</li>
                                             <li>• Document analysis and summarization</li>
                                             <li>• Data collection and organization</li>
@@ -631,88 +746,89 @@
         <!-- Training Options Tab -->
         <div id="content-courses" class="tab-content space-y-12">
             <div class="text-center mb-12 fade-in-up">
-                <h2 class="text-4xl font-bold mb-4 text-primary">
-                    Choose Your Learning Path
+                <h2 class="text-4xl md:text-6xl font-black mb-4">
+                    <span class="text-white">CHOOSE YOUR</span><br>
+                    <span class="text-cyan neon-text">LEARNING PATH</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Flexible training options designed for different schedules, experience levels, and learning preferences
                 </p>
-                <div class="mt-6 p-4 bg-light-secondary rounded-lg max-w-2xl mx-auto">
-                    <p class="text-sm text-gray-700">
-                        <strong>Note:</strong> These are sample training variations. Programs can be customized to 1 month, 3 months, or other durations based on your specific needs and goals.
+                <div class="mt-6 p-4 bg-dark rounded-lg max-w-2xl mx-auto border border-gray-800">
+                    <p class="text-sm text-gray-300">
+                        <strong class="text-cyan">Note:</strong> These are sample training variations. Programs can be customized to 1 month, 3 months, or other durations based on your specific needs and goals.
                     </p>
                 </div>
             </div>
 
             <!-- Learning Format Comparison -->
             <section class="fade-in-up">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">
-                    Learning Formats: Find What Works for You
+                <h3 class="text-2xl font-black text-center mb-8">
+                    <span class="text-white">LEARNING FORMATS:</span> <span class="text-coral neon-text">FIND WHAT WORKS FOR YOU</span>
                 </h3>
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-users text-primary text-5xl mx-auto mb-4 block"></i>
-                        <h4 class="text-xl font-bold text-center mb-4 text-gray-900">In-Person Training</h4>
+                    <div class="bg-dark rounded-xl p-6 border border-gray-800 card-hover">
+                        <i class="fas fa-users text-cyan text-5xl mx-auto mb-4 block neon-glow"></i>
+                        <h4 class="text-xl font-black text-center mb-4 text-white">IN-PERSON TRAINING</h4>
                         <div class="space-y-3">
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Hands-on guidance and immediate feedback</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Hands-on guidance and immediate feedback</span>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Peer networking and collaboration</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Peer networking and collaboration</span>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Structured learning environment</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Structured learning environment</span>
                             </div>
                         </div>
-                        <div class="mt-6 p-4 bg-light-primary rounded-lg">
-                            <p class="text-sm text-gray-700"><strong>Best for:</strong> Those who learn better with direct interaction, need accountability, and want to build professional networks</p>
+                        <div class="mt-6 p-4 bg-gray-900 rounded-lg border border-cyan">
+                            <p class="text-sm text-gray-300"><strong class="text-white">Best for:</strong> Those who learn better with direct interaction, need accountability, and want to build professional networks</p>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-video text-secondary text-5xl mx-auto mb-4 block"></i>
-                        <h4 class="text-xl font-bold text-center mb-4 text-gray-900">Live Online Classes</h4>
+                    <div class="bg-dark rounded-xl p-6 border border-gray-800 card-hover">
+                        <i class="fas fa-video text-coral text-5xl mx-auto mb-4 block neon-glow"></i>
+                        <h4 class="text-xl font-black text-center mb-4 text-white">LIVE ONLINE CLASSES</h4>
                         <div class="space-y-3">
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Real-time interaction with instructors</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Real-time interaction with instructors</span>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Geographic flexibility with consistent timing</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Geographic flexibility with consistent timing</span>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Group discussions and Q&A sessions</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Group discussions and Q&A sessions</span>
                             </div>
                         </div>
-                        <div class="mt-6 p-4 bg-light-secondary rounded-lg">
-                            <p class="text-sm text-gray-700"><strong>Best for:</strong> Those who want instructor guidance but need location flexibility, prefer consistent timing, and value group interaction</p>
+                        <div class="mt-6 p-4 bg-gray-900 rounded-lg border border-coral">
+                            <p class="text-sm text-gray-300"><strong class="text-white">Best for:</strong> Those who want instructor guidance but need location flexibility, prefer consistent timing, and value group interaction</p>
                         </div>
                     </div>
 
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 card-hover">
-                        <i class="fas fa-play-circle text-green-600 text-5xl mx-auto mb-4 block"></i>
-                        <h4 class="text-xl font-bold text-center mb-4 text-gray-900">Self-Paced Learning</h4>
+                    <div class="bg-dark rounded-xl p-6 border border-gray-800 card-hover">
+                        <i class="fas fa-play-circle text-neon-green text-5xl mx-auto mb-4 block neon-glow"></i>
+                        <h4 class="text-xl font-black text-center mb-4 text-white">SELF-PACED LEARNING</h4>
                         <div class="space-y-3">
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Complete flexibility in timing and pace</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Complete flexibility in timing and pace</span>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Replay and review materials unlimited</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Replay and review materials unlimited</span>
                             </div>
                             <div class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                <span class="text-sm text-gray-600">Lower cost and accessibility</span>
+                                <i class="fas fa-check-circle text-neon-green mr-2 mt-1"></i>
+                                <span class="text-sm text-gray-300">Lower cost and accessibility</span>
                             </div>
                         </div>
-                        <div class="mt-6 p-4 bg-green-50 rounded-lg">
-                            <p class="text-sm text-gray-700"><strong>Best for:</strong> Self-motivated learners with irregular schedules, those who prefer to learn at their own pace, and budget-conscious participants</p>
+                        <div class="mt-6 p-4 bg-gray-900 rounded-lg border border-green-400">
+                            <p class="text-sm text-gray-300"><strong class="text-white">Best for:</strong> Self-motivated learners with irregular schedules, those who prefer to learn at their own pace, and budget-conscious participants</p>
                         </div>
                     </div>
                 </div>
@@ -720,60 +836,60 @@
 
             <!-- Training Duration Options -->
             <section class="fade-in-up">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">
-                    Sample Training Variations
+                <h3 class="text-2xl font-black text-center mb-8">
+                    <span class="text-white">SAMPLE TRAINING</span> <span class="text-cyan neon-text">VARIATIONS</span>
                 </h3>
                 <div class="grid lg:grid-cols-3 gap-8">
                     <!-- 3-Day Intensive -->
-                    <div class="bg-orange-50 rounded-2xl border-2 border-orange-200 overflow-hidden shadow-lg">
-                        <div class="bg-secondary p-6 text-white">
+                    <div class="course-card">
+                        <div class="course-header">
                             <i class="fas fa-bolt text-5xl mb-4"></i>
-                            <h3 class="text-2xl font-bold mb-2">3-Day AI Fundamentals</h3>
-                            <p class="text-lg opacity-90">Essential Skills for Immediate Impact</p>
+                            <h3 class="text-2xl font-black mb-2">3-DAY AI FUNDAMENTALS</h3>
+                            <p class="text-lg font-bold opacity-90">Essential Skills for Immediate Impact</p>
                         </div>
                         
                         <div class="p-6">
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 mb-3">Foundation Skills (All Programs Include):</h4>
+                                    <h4 class="font-black text-white mb-3">FOUNDATION SKILLS (ALL PROGRAMS INCLUDE):</h4>
                                     <ul class="space-y-2">
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             LLM basics and prompt engineering fundamentals
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
-                                            Digital safety and security essentials
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
+                                            Responsible AI and ethics essentials
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
+                                            Digital safety and security protocols
+                                        </li>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Basic content creation with AI
-                                        </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
-                                            Introduction to professional tools
                                         </li>
                                     </ul>
                                 </div>
                                 
-                                <div class="pt-4 border-t border-gray-200">
-                                    <h4 class="font-semibold text-gray-900 mb-2">Quick-Win Projects (1.5 days):</h4>
+                                <div class="pt-4 border-t border-gray-700">
+                                    <h4 class="font-black text-white mb-2">QUICK-WIN PROJECTS (1.5 DAYS):</h4>
                                     <div class="space-y-2">
-                                        <button onclick="toggleProjectDetails('project-3day-1')" class="w-full text-left p-3 bg-orange-100 rounded-lg hover:bg-orange-200 transition-colors">
+                                        <button onclick="toggleProjectDetails('project-3day-1')" class="w-full text-left p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors border border-gray-700">
                                             <div class="flex items-center justify-between">
-                                                <span class="font-medium text-gray-900">Professional Bio & Portfolio</span>
-                                                <i class="fas fa-chevron-down text-gray-600"></i>
+                                                <span class="font-bold text-white">Professional Bio & Portfolio</span>
+                                                <i class="fas fa-chevron-down text-cyan"></i>
                                             </div>
-                                            <div id="project-3day-1" class="dropdown-content mt-2 text-sm text-gray-600">
+                                            <div id="project-3day-1" class="dropdown-content mt-2 text-sm text-gray-300">
                                                 Create a professional online presence with AI-generated bio, portfolio layout, and contact information. Completed in 1.5 days with immediate career impact.
                                             </div>
                                         </button>
-                                        <button onclick="toggleProjectDetails('project-3day-2')" class="w-full text-left p-3 bg-orange-100 rounded-lg hover:bg-orange-200 transition-colors">
+                                        <button onclick="toggleProjectDetails('project-3day-2')" class="w-full text-left p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors border border-gray-700">
                                             <div class="flex items-center justify-between">
-                                                <span class="font-medium text-gray-900">Single-Topic Fact-Check</span>
-                                                <i class="fas fa-chevron-down text-gray-600"></i>
+                                                <span class="font-bold text-white">Single-Topic Fact-Check</span>
+                                                <i class="fas fa-chevron-down text-cyan"></i>
                                             </div>
-                                            <div id="project-3day-2" class="dropdown-content mt-2 text-sm text-gray-600">
+                                            <div id="project-3day-2" class="dropdown-content mt-2 text-sm text-gray-300">
                                                 Verify one current news claim using AI tools, creating a concise fact-checking report with sources and methodology. Quick, practical application.
                                             </div>
                                         </button>
@@ -784,55 +900,55 @@
                     </div>
 
                     <!-- 2-Week Comprehensive -->
-                    <div class="bg-blue-50 rounded-2xl border-2 border-blue-200 overflow-hidden shadow-lg">
-                        <div class="bg-primary p-6 text-white">
+                    <div class="course-card">
+                        <div class="course-header coral">
                             <i class="fas fa-chart-line text-5xl mb-4"></i>
-                            <h3 class="text-2xl font-bold mb-2">2-Week AI Mastery</h3>
-                            <p class="text-lg opacity-90">Comprehensive Skills for Professional Growth</p>
+                            <h3 class="text-2xl font-black mb-2">2-WEEK AI MASTERY</h3>
+                            <p class="text-lg font-bold opacity-90">Comprehensive Skills for Professional Growth</p>
                         </div>
                         
                         <div class="p-6">
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 mb-3">Foundation PLUS Advanced Skills:</h4>
+                                    <h4 class="font-black text-white mb-3">FOUNDATION PLUS ADVANCED SKILLS:</h4>
                                     <ul class="space-y-2">
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Advanced prompt engineering and custom AI assistants
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Voice and brand training for AI
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Professional tool mastery (design, research, analysis)
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Multi-platform content strategy
                                         </li>
                                     </ul>
                                 </div>
                                 
-                                <div class="pt-4 border-t border-gray-200">
-                                    <h4 class="font-semibold text-gray-900 mb-2">Professional Projects:</h4>
+                                <div class="pt-4 border-t border-gray-700">
+                                    <h4 class="font-black text-white mb-2">PROFESSIONAL PROJECTS:</h4>
                                     <div class="space-y-2">
-                                        <button onclick="toggleProjectDetails('project-2week-1')" class="w-full text-left p-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors">
+                                        <button onclick="toggleProjectDetails('project-2week-1')" class="w-full text-left p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors border border-gray-700">
                                             <div class="flex items-center justify-between">
-                                                <span class="font-medium text-gray-900">Multimedia Investigation Project</span>
-                                                <i class="fas fa-chevron-down text-gray-600"></i>
+                                                <span class="font-bold text-white">Multimedia Investigation Project</span>
+                                                <i class="fas fa-chevron-down text-coral"></i>
                                             </div>
-                                            <div id="project-2week-1" class="dropdown-content mt-2 text-sm text-gray-600">
+                                            <div id="project-2week-1" class="dropdown-content mt-2 text-sm text-gray-300">
                                                 Conduct a comprehensive investigation on a local issue using AI tools for research, fact-checking, and multimedia content creation. Includes written report, infographics, and presentation.
                                             </div>
                                         </button>
-                                        <button onclick="toggleProjectDetails('project-2week-2')" class="w-full text-left p-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors">
+                                        <button onclick="toggleProjectDetails('project-2week-2')" class="w-full text-left p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors border border-gray-700">
                                             <div class="flex items-center justify-between">
-                                                <span class="font-medium text-gray-900">Policy Analysis & Communication</span>
-                                                <i class="fas fa-chevron-down text-gray-600"></i>
+                                                <span class="font-bold text-white">Policy Analysis & Communication</span>
+                                                <i class="fas fa-chevron-down text-coral"></i>
                                             </div>
-                                            <div id="project-2week-2" class="dropdown-content mt-2 text-sm text-gray-600">
+                                            <div id="project-2week-2" class="dropdown-content mt-2 text-sm text-gray-300">
                                                 Analyze a policy issue or community need, gather constituent feedback, compare solutions, and create a comprehensive report with recommendations and communication strategy.
                                             </div>
                                         </button>
@@ -843,55 +959,55 @@
                     </div>
 
                     <!-- 6-Month Leadership -->
-                    <div class="bg-purple-50 rounded-2xl border-2 border-purple-200 overflow-hidden shadow-lg">
-                        <div class="bg-gradient-to-r from-purple-600 to-pink-600 p-6 text-white">
+                    <div class="course-card">
+                        <div class="course-header purple">
                             <i class="fas fa-award text-5xl mb-4"></i>
-                            <h3 class="text-2xl font-bold mb-2">6-Month AI Leadership</h3>
-                            <p class="text-lg opacity-90">Expert-Level Skills & Community Impact</p>
+                            <h3 class="text-2xl font-black mb-2">6-MONTH AI LEADERSHIP</h3>
+                            <p class="text-lg font-bold opacity-90">Expert-Level Skills & Community Impact</p>
                         </div>
                         
                         <div class="p-6">
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 mb-3">Mastery PLUS Leadership Skills:</h4>
+                                    <h4 class="font-black text-white mb-3">MASTERY PLUS LEADERSHIP SKILLS:</h4>
                                     <ul class="space-y-2">
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Expert-level AI competencies across all tools
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Building and training custom AI assistants
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Training and mentoring others
                                         </li>
-                                        <li class="flex items-start text-sm text-gray-600">
-                                            <i class="fas fa-check-circle text-green-500 mr-2 mt-0.5"></i>
+                                        <li class="flex items-start text-sm text-gray-300">
+                                            <i class="fas fa-check-circle text-neon-green mr-2 mt-0.5"></i>
                                             Community AI adoption strategies
                                         </li>
                                     </ul>
                                 </div>
                                 
-                                <div class="pt-4 border-t border-gray-200">
-                                    <h4 class="font-semibold text-gray-900 mb-2">Leadership Projects:</h4>
+                                <div class="pt-4 border-t border-gray-700">
+                                    <h4 class="font-black text-white mb-2">LEADERSHIP PROJECTS:</h4>
                                     <div class="space-y-2">
-                                        <button onclick="toggleProjectDetails('project-6month-1')" class="w-full text-left p-3 bg-purple-100 rounded-lg hover:bg-purple-200 transition-colors">
+                                        <button onclick="toggleProjectDetails('project-6month-1')" class="w-full text-left p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors border border-gray-700">
                                             <div class="flex items-center justify-between">
-                                                <span class="font-medium text-gray-900">Community Training Program</span>
-                                                <i class="fas fa-chevron-down text-gray-600"></i>
+                                                <span class="font-bold text-white">Community Training Program</span>
+                                                <i class="fas fa-chevron-down text-purple-400"></i>
                                             </div>
-                                            <div id="project-6month-1" class="dropdown-content mt-2 text-sm text-gray-600">
+                                            <div id="project-6month-1" class="dropdown-content mt-2 text-sm text-gray-300">
                                                 Design and deliver an AI training program for your local community or organization. Learn by teaching - demonstrating mastery through knowledge transfer.
                                             </div>
                                         </button>
-                                        <button onclick="toggleProjectDetails('project-6month-2')" class="w-full text-left p-3 bg-purple-100 rounded-lg hover:bg-purple-200 transition-colors">
+                                        <button onclick="toggleProjectDetails('project-6month-2')" class="w-full text-left p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors border border-gray-700">
                                             <div class="flex items-center justify-between">
-                                                <span class="font-medium text-gray-900">AI-Powered Media Initiative</span>
-                                                <i class="fas fa-chevron-down text-gray-600"></i>
+                                                <span class="font-bold text-white">AI-Powered Media Initiative</span>
+                                                <i class="fas fa-chevron-down text-purple-400"></i>
                                             </div>
-                                            <div id="project-6month-2" class="dropdown-content mt-2 text-sm text-gray-600">
+                                            <div id="project-6month-2" class="dropdown-content mt-2 text-sm text-gray-300">
                                                 Launch a comprehensive media project using advanced AI tools - could be a podcast series, investigative journalism project, or digital publication with measurable community impact.
                                             </div>
                                         </button>
@@ -904,25 +1020,25 @@
             </section>
 
             <!-- Why Project-Based Learning -->
-            <section class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 fade-in-up">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">
-                    Why Project-Based Learning Works
+            <section class="bg-dark rounded-2xl p-8 border border-gray-800 fade-in-up">
+                <h3 class="text-2xl font-black text-center mb-8">
+                    <span class="text-white">WHY PROJECT-BASED</span> <span class="text-cyan neon-text">LEARNING WORKS</span>
                 </h3>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <i class="fas fa-briefcase text-primary text-5xl mx-auto mb-4"></i>
-                        <h4 class="font-bold text-gray-900 mb-2">Portfolio Development</h4>
-                        <p class="text-sm text-gray-600">Create tangible work samples that demonstrate your AI skills to employers and clients</p>
+                        <i class="fas fa-briefcase text-cyan text-5xl mx-auto mb-4 neon-glow"></i>
+                        <h4 class="font-black text-white mb-2">PORTFOLIO DEVELOPMENT</h4>
+                        <p class="text-sm text-gray-300">Create tangible work samples that demonstrate your AI skills to employers and clients</p>
                     </div>
                     <div class="text-center">
-                        <i class="fas fa-hands-helping text-primary text-5xl mx-auto mb-4"></i>
-                        <h4 class="font-bold text-gray-900 mb-2">Real-World Application</h4>
-                        <p class="text-sm text-gray-600">Apply skills to actual challenges you face in your journalism, political, or educational work</p>
+                        <i class="fas fa-hands-helping text-coral text-5xl mx-auto mb-4 neon-glow"></i>
+                        <h4 class="font-black text-white mb-2">REAL-WORLD APPLICATION</h4>
+                        <p class="text-sm text-gray-300">Apply skills to actual challenges you face in your journalism, political, or educational work</p>
                     </div>
                     <div class="text-center">
-                        <i class="fas fa-chart-line text-primary text-5xl mx-auto mb-4"></i>
-                        <h4 class="font-bold text-gray-900 mb-2">Measurable Impact</h4>
-                        <p class="text-sm text-gray-600">Complete projects that create immediate value for your career and community</p>
+                        <i class="fas fa-chart-line text-neon-green text-5xl mx-auto mb-4 neon-glow"></i>
+                        <h4 class="font-black text-white mb-2">MEASURABLE IMPACT</h4>
+                        <p class="text-sm text-gray-300">Complete projects that create immediate value for your career and community</p>
                     </div>
                 </div>
             </section>
@@ -931,101 +1047,102 @@
         <!-- Real Impact Tab -->
         <div id="content-impact" class="tab-content space-y-12">
             <div class="text-center fade-in-up">
-                <h2 class="text-4xl font-bold mb-4 text-secondary">
-                    Real Impact from AI Skills
+                <h2 class="text-4xl md:text-6xl font-black mb-4">
+                    <span class="text-white">REAL IMPACT FROM</span><br>
+                    <span class="text-coral neon-text">AI SKILLS</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Verified data on how AI skills transform careers and create opportunities across East Africa
                 </p>
             </div>
 
             <!-- Productivity Gains -->
             <section class="fade-in-up">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">
-                    Verified Productivity Improvements
+                <h3 class="text-2xl font-black text-center mb-8">
+                    <span class="text-white">VERIFIED PRODUCTIVITY</span> <span class="text-cyan neon-text">IMPROVEMENTS</span>
                 </h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">76%</div>
-                        <div class="text-sm font-medium text-gray-900 mb-1">Time Reduction</div>
-                        <div class="text-xs text-gray-600">Troubleshooting tasks</div>
+                    <div class="stats-card">
+                        <div class="stats-number">76%</div>
+                        <div class="text-sm font-black text-white mb-1">TIME REDUCTION</div>
+                        <div class="text-xs text-gray-400">Troubleshooting tasks</div>
                         <div class="text-xs text-gray-500 mt-2">Stanford/World Bank 2024</div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">70%+</div>
-                        <div class="text-sm font-medium text-gray-900 mb-1">Time Savings</div>
-                        <div class="text-xs text-gray-600">Critical thinking & programming</div>
+                    <div class="stats-card">
+                        <div class="stats-number">70%+</div>
+                        <div class="text-sm font-black text-white mb-1">TIME SAVINGS</div>
+                        <div class="text-xs text-gray-400">Critical thinking & programming</div>
                         <div class="text-xs text-gray-500 mt-2">Stanford/World Bank 2024</div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">69%</div>
-                        <div class="text-sm font-medium text-gray-900 mb-1">Writing Efficiency</div>
-                        <div class="text-xs text-gray-600">80 min → 25 min average</div>
+                    <div class="stats-card">
+                        <div class="stats-number">69%</div>
+                        <div class="text-sm font-black text-white mb-1">WRITING EFFICIENCY</div>
+                        <div class="text-xs text-gray-400">80 min → 25 min average</div>
                         <div class="text-xs text-gray-500 mt-2">Stanford/World Bank 2024</div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center">
-                        <div class="text-4xl font-bold text-green-600 mb-2">60-70%</div>
-                        <div class="text-sm font-medium text-gray-900 mb-1">Management Tasks</div>
-                        <div class="text-xs text-gray-600">Decision-making & personnel</div>
+                    <div class="stats-card">
+                        <div class="stats-number">60-70%</div>
+                        <div class="text-sm font-black text-white mb-1">MANAGEMENT TASKS</div>
+                        <div class="text-xs text-gray-400">Decision-making & personnel</div>
                         <div class="text-xs text-gray-500 mt-2">Stanford/World Bank 2024</div>
                     </div>
                 </div>
             </section>
 
             <!-- Career Impact -->
-            <section class="bg-light-primary rounded-2xl p-8 fade-in-up">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">
-                    Career Advancement Opportunities
+            <section class="bg-dark rounded-2xl p-8 border border-cyan fade-in-up">
+                <h3 class="text-2xl font-black text-center mb-8">
+                    <span class="text-white">CAREER ADVANCEMENT</span> <span class="text-coral neon-text">OPPORTUNITIES</span>
                 </h3>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div>
-                        <h4 class="text-xl font-bold mb-4 text-gray-900">Job Market Growth</h4>
+                        <h4 class="text-xl font-black mb-4 text-cyan neon-text">JOB MARKET GROWTH</h4>
                         <div class="space-y-4">
                             <div class="flex items-center">
-                                <div class="w-16 text-2xl font-bold text-primary">68%</div>
+                                <div class="w-16 text-2xl font-black text-cyan">68%</div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Increase in AI job postings globally since 2022</div>
-                                    <div class="text-xs text-gray-500">Multiple industry reports</div>
+                                    <div class="text-sm font-bold text-white">Increase in AI job postings globally since 2022</div>
+                                    <div class="text-xs text-gray-400">Multiple industry reports</div>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-16 text-2xl font-bold text-primary">61%</div>
+                                <div class="w-16 text-2xl font-black text-cyan">61%</div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Year-over-year surge in AI skill requirements</div>
-                                    <div class="text-xs text-gray-500">LinkedIn Global Talent Report 2024</div>
+                                    <div class="text-sm font-bold text-white">Year-over-year surge in AI skill requirements</div>
+                                    <div class="text-xs text-gray-400">LinkedIn Global Talent Report 2024</div>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-16 text-2xl font-bold text-primary">40%</div>
+                                <div class="w-16 text-2xl font-black text-cyan">40%</div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Projected increase in AI specialist roles by 2027</div>
-                                    <div class="text-xs text-gray-500">World Economic Forum</div>
+                                    <div class="text-sm font-bold text-white">Projected increase in AI specialist roles by 2027</div>
+                                    <div class="text-xs text-gray-400">World Economic Forum</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold mb-4 text-gray-900">Economic Benefits</h4>
+                        <h4 class="text-xl font-black mb-4 text-coral neon-text">ECONOMIC BENEFITS</h4>
                         <div class="space-y-4">
                             <div class="flex items-center">
-                                <div class="w-16 text-2xl font-bold text-secondary">56%</div>
+                                <div class="w-16 text-2xl font-black text-coral">56%</div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Wage premium for AI-skilled workers</div>
-                                    <div class="text-xs text-gray-500">PwC Global AI Jobs Barometer 2025</div>
+                                    <div class="text-sm font-bold text-white">Wage premium for AI-skilled workers</div>
+                                    <div class="text-xs text-gray-400">PwC Global AI Jobs Barometer 2025</div>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-16 text-2xl font-bold text-secondary">87%</div>
+                                <div class="w-16 text-2xl font-black text-coral">87%</div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Of executives expect revenue growth from AI</div>
-                                    <div class="text-xs text-gray-500">McKinsey AI Survey 2025</div>
+                                    <div class="text-sm font-bold text-white">Of executives expect revenue growth from AI</div>
+                                    <div class="text-xs text-gray-400">McKinsey AI Survey 2025</div>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="w-16 text-2xl font-bold text-secondary">50%</div>
+                                <div class="w-16 text-2xl font-black text-coral">50%</div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Expect 5%+ revenue boost within 3 years</div>
-                                    <div class="text-xs text-gray-500">McKinsey AI Survey 2025</div>
+                                    <div class="text-sm font-bold text-white">Expect 5%+ revenue boost within 3 years</div>
+                                    <div class="text-xs text-gray-400">McKinsey AI Survey 2025</div>
                                 </div>
                             </div>
                         </div>
@@ -1034,28 +1151,28 @@
             </section>
 
             <!-- Regional Context -->
-            <section class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 fade-in-up">
-                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900">
-                    East African Media Landscape
+            <section class="bg-dark rounded-2xl p-8 border border-gray-800 fade-in-up">
+                <h3 class="text-2xl font-black text-center mb-8">
+                    <span class="text-white">EAST AFRICAN</span> <span class="text-neon-green neon-text">MEDIA LANDSCAPE</span>
                 </h3>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
                         <div class="text-3xl mb-4">📊</div>
-                        <h4 class="font-bold text-gray-900 mb-2">Current AI Adoption</h4>
-                        <div class="text-2xl font-bold text-primary mb-2">20-24%</div>
-                        <p class="text-sm text-gray-600">Current AI adoption rate in African journalism, showing significant room for growth</p>
+                        <h4 class="font-black text-white mb-2">CURRENT AI ADOPTION</h4>
+                        <div class="text-2xl font-black text-cyan mb-2 neon-text">20-24%</div>
+                        <p class="text-sm text-gray-300">Current AI adoption rate in African journalism, showing significant room for growth</p>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl mb-4">🚀</div>
-                        <h4 class="font-bold text-gray-900 mb-2">Growth Opportunity</h4>
-                        <div class="text-2xl font-bold text-green-600 mb-2">60%</div>
-                        <p class="text-sm text-gray-600">Of surveyed journalists are already using AI tools in newsrooms across Africa</p>
+                        <h4 class="font-black text-white mb-2">GROWTH OPPORTUNITY</h4>
+                        <div class="text-2xl font-black text-neon-green mb-2 neon-text">60%</div>
+                        <p class="text-sm text-gray-300">Of surveyed journalists are already using AI tools in newsrooms across Africa</p>
                     </div>
                     <div class="text-center">
                         <div class="text-3xl mb-4">💡</div>
-                        <h4 class="font-bold text-gray-900 mb-2">Innovation Potential</h4>
-                        <div class="text-2xl font-bold text-secondary mb-2">High</div>
-                        <p class="text-sm text-gray-600">Early adopters are positioned to lead the transformation of African media</p>
+                        <h4 class="font-black text-white mb-2">INNOVATION POTENTIAL</h4>
+                        <div class="text-2xl font-black text-coral mb-2 neon-text">HIGH</div>
+                        <p class="text-sm text-gray-300">Early adopters are positioned to lead the transformation of African media</p>
                     </div>
                 </div>
             </section>
@@ -1064,47 +1181,48 @@
         <!-- Contact Tab -->
         <div id="content-contact" class="tab-content space-y-12">
             <div class="text-center fade-in-up">
-                <h2 class="text-4xl font-bold mb-4 text-primary">
-                    Ready to Transform Your Career?
+                <h2 class="text-4xl md:text-6xl font-black mb-4">
+                    <span class="text-white">READY TO TRANSFORM</span><br>
+                    <span class="text-cyan neon-text">YOUR CAREER?</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Join the growing community of AI-skilled professionals across East Africa
                 </p>
             </div>
 
             <!-- Call to Action -->
-            <section class="hero-gradient rounded-2xl p-12 text-white text-center fade-in-up">
-                <h3 class="text-3xl font-bold mb-4">
-                    Start Your AI Journey Today
+            <section class="hero-gradient rounded-2xl p-12 text-white text-center fade-in-up border border-cyan neon-glow">
+                <h3 class="text-3xl font-black mb-4 neon-text">
+                    START YOUR AI JOURNEY TODAY
                 </h3>
-                <p class="text-xl mb-8 text-blue-100">
+                <p class="text-xl mb-8 text-gray-300">
                     Contact Women's Lens to discuss training options and customize the program for your needs.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1gzZHvD7rSi14kEwBE0i-Zfo1xc-vQOotndYt5w4cxJqnEJsc-MH0VkUf0PPP9ThYsVYhDTqIu" target="_blank" class="interactive-button btn-primary text-lg">
-                        Schedule Consultation <i class="fas fa-calendar ml-2"></i>
+                        SCHEDULE CONSULTATION <i class="fas fa-calendar ml-2"></i>
                     </a>
-                    <button onclick="downloadOverview()" class="interactive-button border-2 border-white text-white hover:bg-white hover:text-purple-900 px-8 py-4 text-lg rounded-lg font-semibold">
-                        Download Overview <i class="fas fa-download ml-2"></i>
+                    <button onclick="downloadOverview()" class="interactive-button btn-secondary text-lg">
+                        DOWNLOAD OVERVIEW <i class="fas fa-download ml-2"></i>
                     </button>
                 </div>
             </section>
 
             <!-- Contact Information -->
             <section class="grid md:grid-cols-3 gap-8 fade-in-up">
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center card-hover">
-                    <i class="fas fa-map-marker-alt text-green-600 text-5xl mx-auto mb-4"></i>
-                    <h4 class="font-bold text-gray-900 mb-3">Regional Coverage</h4>
-                    <p class="text-gray-600 mb-4">Serving journalists, politicians, and educators across East Africa</p>
-                    <div class="text-sm text-gray-500">
+                <div class="bg-dark rounded-xl p-6 border border-gray-800 text-center card-hover">
+                    <i class="fas fa-map-marker-alt text-neon-green text-5xl mx-auto mb-4 neon-glow"></i>
+                    <h4 class="font-black text-white mb-3">REGIONAL COVERAGE</h4>
+                    <p class="text-gray-300 mb-4">Serving journalists, politicians, and educators across East Africa</p>
+                    <div class="text-sm text-gray-400">
                         Uganda • Tanzania • South Sudan<br>
-                        <em>Additional countries welcome</em>
+                        <em class="text-cyan">Additional countries welcome</em>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center card-hover">
-                    <i class="fas fa-users text-primary text-5xl mx-auto mb-4"></i>
-                    <h4 class="font-bold text-gray-900 mb-3">Target Audiences</h4>
-                    <ul class="space-y-2 text-gray-600">
+                <div class="bg-dark rounded-xl p-6 border border-gray-800 text-center card-hover">
+                    <i class="fas fa-users text-cyan text-5xl mx-auto mb-4 neon-glow"></i>
+                    <h4 class="font-black text-white mb-3">TARGET AUDIENCES</h4>
+                    <ul class="space-y-2 text-gray-300">
                         <li>Women Journalists</li>
                         <li>Local Politicians</li>
                         <li>Community Leaders</li>
@@ -1112,10 +1230,10 @@
                         <li>Media Organizations</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-100 text-center card-hover">
-                    <i class="fas fa-lightbulb text-secondary text-5xl mx-auto mb-4"></i>
-                    <h4 class="font-bold text-gray-900 mb-3">Key Benefits</h4>
-                    <ul class="space-y-2 text-gray-600">
+                <div class="bg-dark rounded-xl p-6 border border-gray-800 text-center card-hover">
+                    <i class="fas fa-lightbulb text-coral text-5xl mx-auto mb-4 neon-glow"></i>
+                    <h4 class="font-black text-white mb-3">KEY BENEFITS</h4>
+                    <ul class="space-y-2 text-gray-300">
                         <li>Immediate skill application</li>
                         <li>Career advancement</li>
                         <li>Professional networking</li>
@@ -1131,28 +1249,32 @@
     <div id="skills-popup" class="popup-overlay">
         <div class="popup-content max-w-2xl">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-primary">AI Skills Overview</h3>
-                <button onclick="hidePopup('skills-popup')" class="text-gray-500 hover:text-gray-700">
+                <h3 class="text-2xl font-black text-cyan neon-text">AI SKILLS OVERVIEW</h3>
+                <button onclick="hidePopup('skills-popup')" class="text-gray-400 hover:text-white">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
             <div class="space-y-4">
-                <div class="p-4 bg-light-primary rounded-lg">
-                    <h4 class="font-bold text-gray-900 mb-2">LLM Fundamentals (All Programs)</h4>
-                    <p class="text-sm text-gray-600">Master Large Language Models, prompt engineering, content creation, and digital safety.</p>
+                <div class="p-4 bg-gray-900 rounded-lg border border-cyan">
+                    <h4 class="font-black text-white mb-2">LLM FUNDAMENTALS (ALL PROGRAMS)</h4>
+                    <p class="text-sm text-gray-300">Master Large Language Models, prompt engineering, content creation, and digital safety.</p>
                 </div>
-                <div class="p-4 bg-light-secondary rounded-lg">
-                    <h4 class="font-bold text-gray-900 mb-2">Professional Tools</h4>
-                    <p class="text-sm text-gray-600">Learn design, presentation, research, and analysis tools that enhance your professional capabilities.</p>
+                <div class="p-4 bg-gray-900 rounded-lg border border-coral">
+                    <h4 class="font-black text-white mb-2">RESPONSIBLE AI & ETHICS</h4>
+                    <p class="text-sm text-gray-300">Learn ethical AI practices, bias awareness, and prevention strategies for inclusive AI development.</p>
                 </div>
-                <div class="p-4 bg-green-50 rounded-lg">
-                    <h4 class="font-bold text-gray-900 mb-2">Transferable Skills</h4>
-                    <p class="text-sm text-gray-600">Build skills that work across journalism, politics, education, and any professional field.</p>
+                <div class="p-4 bg-gray-900 rounded-lg border border-green-400">
+                    <h4 class="font-black text-white mb-2">PROFESSIONAL TOOLS</h4>
+                    <p class="text-sm text-gray-300">Learn design, presentation, research, and analysis tools that enhance your professional capabilities.</p>
+                </div>
+                <div class="p-4 bg-gray-900 rounded-lg border border-purple-400">
+                    <h4 class="font-black text-white mb-2">TRANSFERABLE SKILLS</h4>
+                    <p class="text-sm text-gray-300">Build skills that work across journalism, politics, education, and any professional field.</p>
                 </div>
             </div>
             <div class="mt-6 text-center">
                 <button onclick="hidePopup('skills-popup'); showTab('skills')" class="btn-primary">
-                    Explore All Skills <i class="fas fa-arrow-right ml-2"></i>
+                    EXPLORE ALL SKILLS <i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
         </div>
@@ -1161,49 +1283,57 @@
     <div id="impact-popup" class="popup-overlay">
         <div class="popup-content max-w-2xl">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold text-secondary">Real Impact Data</h3>
-                <button onclick="hidePopup('impact-popup')" class="text-gray-500 hover:text-gray-700">
+                <h3 class="text-2xl font-black text-coral neon-text">REAL IMPACT DATA</h3>
+                <button onclick="hidePopup('impact-popup')" class="text-gray-400 hover:text-white">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
             </div>
             <div class="grid md:grid-cols-2 gap-4">
-                <div class="text-center p-4 bg-green-50 rounded-lg">
-                    <div class="text-3xl font-bold text-green-600">76%</div>
-                    <div class="text-sm text-gray-600">Time reduction in troubleshooting</div>
+                <div class="text-center p-4 bg-gray-900 rounded-lg border border-green-400">
+                    <div class="text-3xl font-black text-neon-green neon-text">76%</div>
+                    <div class="text-sm text-gray-300">Time reduction in troubleshooting</div>
                 </div>
-                <div class="text-center p-4 bg-green-50 rounded-lg">
-                    <div class="text-3xl font-bold text-green-600">69%</div>
-                    <div class="text-sm text-gray-600">Writing efficiency improvement</div>
+                <div class="text-center p-4 bg-gray-900 rounded-lg border border-green-400">
+                    <div class="text-3xl font-black text-neon-green neon-text">69%</div>
+                    <div class="text-sm text-gray-300">Writing efficiency improvement</div>
                 </div>
-                <div class="text-center p-4 bg-blue-50 rounded-lg">
-                    <div class="text-3xl font-bold text-primary">56%</div>
-                    <div class="text-sm text-gray-600">Wage premium for AI skills</div>
+                <div class="text-center p-4 bg-gray-900 rounded-lg border border-cyan">
+                    <div class="text-3xl font-black text-cyan neon-text">56%</div>
+                    <div class="text-sm text-gray-300">Wage premium for AI skills</div>
                 </div>
-                <div class="text-center p-4 bg-blue-50 rounded-lg">
-                    <div class="text-3xl font-bold text-primary">68%</div>
-                    <div class="text-sm text-gray-600">Increase in AI job postings</div>
+                <div class="text-center p-4 bg-gray-900 rounded-lg border border-cyan">
+                    <div class="text-3xl font-black text-cyan neon-text">68%</div>
+                    <div class="text-sm text-gray-300">Increase in AI job postings</div>
                 </div>
             </div>
             <div class="mt-6 text-center">
                 <button onclick="hidePopup('impact-popup'); showTab('impact')" class="btn-primary">
-                    See All Impact Data <i class="fas fa-chart-line ml-2"></i>
+                    SEE ALL IMPACT DATA <i class="fas fa-chart-line ml-2"></i>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-darker border-t border-gray-800 py-12">
         <div class="container mx-auto px-6 text-center">
-            <div class="flex items-center justify-center mb-6">
-                <i class="fas fa-sparkles text-yellow-400 text-4xl mr-3"></i>
-                <h3 class="text-2xl font-bold">Women's Lens AI Academy</h3>
+            <div class="logo-container justify-center mb-6">
+                <img src="she-is-ai-logo.jpeg" alt="She Is AI" class="h-8">
+                <span class="text-cyan text-xl font-bold">×</span>
+                <img src="WomenLensAfricaLogo.png" alt="Women's Lens Africa" class="h-8">
+            </div>
+            <div class="partnership-badge inline-block mb-4">
+                Partnership Program
             </div>
             <p class="text-gray-400 mb-6">
-                Empowering East African voices through cutting-edge AI education
+                <span class="text-cyan font-bold">Empowering East African voices</span> through cutting-edge AI education
             </p>
-            <div class="flex justify-center space-x-6 text-sm text-gray-400">
-                <span>© 2025 Women's Lens</span>
+            <div class="flex justify-center space-x-6 text-sm text-gray-500">
+                <span>© 2025 Partnership Program</span>
+                <span>•</span>
+                <span class="text-cyan">She Is AI</span>
+                <span>×</span>
+                <span class="text-coral">Women's Lens Africa</span>
                 <span>•</span>
                 <span>Designed for Impact</span>
             </div>
